@@ -10,6 +10,6 @@ namespace CommandAPI.Dtos
 		
 		public string HowTo { get; set; }
 		
-		//public string Profile { get; set; }
+		//public string Platform { get; set; }
 	}
 }

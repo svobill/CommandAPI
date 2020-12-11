@@ -11,8 +11,8 @@ namespace CommandAPI.Data
 		
 		IEnumerable<Command> GetAllCommands();
 		Command GetCommandByID(int id);
-		void CreateCommand();
-		void UpdateCommand();
-		void DeleteCommand();
+		void CreateCommand(Command cmd);
+		void UpdateCommand(Command cmd);
+		void DeleteCommand(Command cmd);
 	}
 }
