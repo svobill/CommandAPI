@@ -28,7 +28,7 @@ namespace CommandAPI
         public void ConfigureServices(IServiceCollection services)
         {
 			services.AddDbContext<CommandContext>(options => options.UseSqlServer
-				(Configuration.GetConnectionString("SQLServerConnection")));
+				(Configuration.GetConnectionString("SqlServerConnection")));
 			
 			services.AddControllers();
 				
