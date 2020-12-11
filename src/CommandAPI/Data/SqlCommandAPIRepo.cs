@@ -5,11 +5,11 @@ using CommandAPI.Models;
 
 namespace CommandAPI.Data
 {
-	public class SQLCommandAPIRepo : ICommandAPIRepo
+	public class SqlCommandAPIRepo : ICommandAPIRepo
 	{
 		private readonly CommandContext _context;
 		
-		public SQLCommandAPIRepo(CommandContext context)
+		public SqlCommandAPIRepo(CommandContext context)
 		{
 			_context = context;
 		}

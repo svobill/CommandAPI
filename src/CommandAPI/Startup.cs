@@ -33,7 +33,7 @@ namespace CommandAPI
 			services.AddControllers();
 				
 			// Associate a class with an interface
-			services.AddScoped<ICommandAPIRepo, MockCommandAPIRepo>();
+			services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
