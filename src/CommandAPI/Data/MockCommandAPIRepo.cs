@@ -46,7 +46,7 @@ namespace CommandAPI.Data
 			return commands;
 		}
 		
-		public Command GetCommandByID(int ID)
+		public Command GetCommandByID(int id)
 		{
 			return new Command 
 				{

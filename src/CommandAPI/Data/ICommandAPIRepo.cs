@@ -10,7 +10,7 @@ namespace CommandAPI.Data
 		bool SaveChanges();
 		
 		IEnumerable<Command> GetAllCommands();
-		Command GetCommandByID(int ID);
+		Command GetCommandByID(int id);
 		void CreateCommand();
 		void UpdateCommand();
 		void DeleteCommand();
