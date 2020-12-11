@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CommandAPI.Models
 {
@@ -17,6 +18,5 @@ namespace CommandAPI.Models
 		
 		[Required]
 		public string Platform { get; set; }
-
 	}
 }
