@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CommandAPI.Data;
 using CommandAPI.Models;
 using Microsoft.AspNetCore.Builder;
@@ -23,20 +24,24 @@ namespace CommandAPI
 			Configuration = configuration;
 		}
 		
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        // This method gets called by the runtime.  Use this method to add (register) services to the container.
+        // For more information about how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+			// Adding DbContext to connect to SQL Server Database
 			services.AddDbContext<CommandContext>(options => options.UseSqlServer
 				(Configuration.GetConnectionString("SqlServerConnection")));
 			
 			services.AddControllers();
+			
+			// Adding AutoMapper for DTOs
+			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 				
 			// Associate a class with an interface
 			services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime.  Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
