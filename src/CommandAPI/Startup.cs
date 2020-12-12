@@ -33,11 +33,11 @@ namespace CommandAPI
 			services.AddDbContext<CommandContext>(options => options.UseSqlServer
 				(Configuration.GetConnectionString("SqlServerConnection")));
 			
-			services.AddControllers().AddNewtonSoftJson(s => 
+			services.AddControllers().AddNewtonsoftJson(s => 
 			{
 				s.SerializerSettings.ContractResolver = 
 					new CamelCasePropertyNamesContractResolver();
-			};
+			});
 			
 			// Adding AutoMapper for DTOs
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

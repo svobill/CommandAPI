@@ -5,6 +5,7 @@ using CommandAPI.Dtos;
 using CommandAPI.Data;
 using CommandAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace CommandAPI.Controllers
 {
@@ -80,7 +81,7 @@ namespace CommandAPI.Controllers
 			}
 			
 			var commandToPatch = _mapper.Map<CommandUpdateDto>(commandModelFromRepository);
-			patchDoc,ApplyTo(commandToPatch, ModelState);
+			patchDoc.ApplyTo(commandToPatch, ModelState);
 			
 			if (!TryValidateModel(commandToPatch))
 			{
