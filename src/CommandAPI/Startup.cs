@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Serialization;
 
 namespace CommandAPI
 {
@@ -32,7 +33,11 @@ namespace CommandAPI
 			services.AddDbContext<CommandContext>(options => options.UseSqlServer
 				(Configuration.GetConnectionString("SqlServerConnection")));
 			
-			services.AddControllers();
+			services.AddControllers().AddNewtonSoftJson(s => 
+			{
+				s.SerializerSettings.ContractResolver = 
+					new CamelCasePropertyNamesContractResolver();
+			};
 			
 			// Adding AutoMapper for DTOs
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

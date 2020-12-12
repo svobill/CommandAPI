@@ -8,7 +8,7 @@ namespace CommandAPI.Data
 	{
 		public CommandContext(DbContextOptions<CommandContext> options) : base(options)
 		{
-			
+			// No code needed for this implementation
 		}
 		
 		public DbSet<Command> CommandItems { get; set; }
